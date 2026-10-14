@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title>Latihan Web02</title>
+    <style>
+        /* 1. Aturan scrollbar untuk Bingkai Utama dan Kolom Address */
+        .custom-scroll {
+            overflow-y: scroll;
+        }
+
+        /* Mengatur lebar scrollbar */
+        .custom-scroll::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        /* Menyembunyikan batang/sumbu penggulung (thumb & track) */
+        .custom-scroll::-webkit-scrollbar-thumb,
+        .custom-scroll::-webkit-scrollbar-track {
+            background: transparent;
+            display: none;
+        }
+
+        /* Menampilkan tombol panah atas dan bawah secara vertikal */
+        .custom-scroll::-webkit-scrollbar-button:single-button:vertical:decrement {
+            display: block;
+            background-color: #e0e0e0;
+            border: 1px solid #777;
+            /* Panah Atas */
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'><polygon points='4,1 1,6 7,6' fill='%23333'/></svg>");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .custom-scroll::-webkit-scrollbar-button:single-button:vertical:increment {
+            display: block;
+            background-color: #e0e0e0;
+            border: 1px solid #777;
+            /* Panah Bawah */
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'><polygon points='4,6 1,1 7,1' fill='%23333'/></svg>");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* 2. Ukuran fixed & mencegah resize untuk Kolom Address */
+        .fixed-address {
+            width: 200px;
+            height: 90px;
+            resize: none; /* Menghilangkan ikon penarik/resize di pojok kanan bawah */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Border Utama -->
+    <div class="custom-scroll" style="width: 420px; height: 230px; border: 2px solid #777; padding: 10px; box-sizing: border-box;">
+        <form>
+            <table border="0" cellpadding="4">
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" size="30" placeholder="you name here">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="text" size="35" placeholder="your email here">
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">Address:</td>
+                    <td>
+                        <!-- Kolom Address dengan fixed size dan no resize -->
+                        <textarea class="custom-scroll fixed-address" placeholder="25 Nowhere Street&#10;Somewhere&#10;Not Here&#10;Y2K 5RU"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Postcode:</td>
+                    <td>
+                        <input type="text" size="18" placeholder="postal code">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>
